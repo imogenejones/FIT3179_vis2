@@ -1,0 +1,38 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url":
+        "Global Missing Migrants Dataset.csv"
+    },
+    "transform": [
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Total Number of Dead and Missing", "as": "totalDeaths"}
+          ],
+          "groupby": ["Incident year", "Reported Month"]
+        }
+      ],
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "Reported Month",
+        "type": "ordinal",
+        "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        "axis": {"title": "Month"}
+      },
+      "y": {
+        "field": "Incident year",
+        "type": "ordinal",
+        "axis": {"title": "Year"}
+      },
+      "color": {
+        "field": "totalDeaths",
+        "type": "quantitative",
+        "scale": {
+          "scheme": "reds"
+        },
+        "legend": {"title": "Deaths and Missing"}
+      }
+    }
+  }
+  

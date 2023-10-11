@@ -1,0 +1,51 @@
+html, body {
+    background-color: #adc1ff;
+}
+
+.pure-u-1 img{
+    width: 60vw;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.pure-u-1-2 {
+    width: 40vw;
+    height: 40vw;
+}
+
+
+#text_div {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+h1 {
+    text-align: center;
+    color: #111933;
+    font-size: 40px;
+}
+
+h2 {
+    margin-left:50px;
+    color: #111933;
+    font-size: 40px;
+}
+
+p {
+    color: #111933;
+    font-size: 16px;
+}
+
+#map{
+    align-content: center;
+    width: 30vw;
+    height: 30vw
+}
+
+#pie_chart{
+    align-content: center;
+    margin-left: 50px;
+    width: 90%;
+    height: 90%
+
+}

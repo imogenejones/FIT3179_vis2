@@ -1,0 +1,21 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url":
+        "Global Missing Migrants Dataset.csv"
+    },
+    "mark":{ "type": "bar", "tooltip": {"content": "data"}},
+    "encoding": {
+      "x": {
+        "field": "Migration route",
+        "type": "nominal",
+        "axis": {"title": "Migration Route"}
+      },
+      "y": {
+        "aggregate": "count",
+        "type": "quantitative",
+        "axis": {"title": "Number of Incidents"}
+      }
+    }
+  }
+  
