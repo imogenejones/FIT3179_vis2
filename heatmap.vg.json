@@ -1,35 +1,43 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 300,
     "data": {
         "url":
         "Global Missing Migrants Dataset.csv"
     },
     "transform": [
         {
+          "filter": "datum['Migration route abbr'] !== 'Unknown'"
+        },
+        {
           "aggregate": [
             {"op": "sum", "field": "Total Number of Dead and Missing", "as": "totalDeaths"}
           ],
-          "groupby": ["Incident year", "Reported Month"]
+          "groupby": ["Cause of Death", "Migration route abbr"]
         }
       ],
-    "mark": "rect",
+    "mark":{"type": "rect", "tooltip": {"content": "data"}},
     "encoding": {
       "x": {
-        "field": "Reported Month",
-        "type": "ordinal",
-        "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-        "axis": {"title": "Month"}
+        "field": "Migration route abbr",
+        "type": "nominal",
+        "axis": {"title": "Migration Route"}
       },
       "y": {
-        "field": "Incident year",
-        "type": "ordinal",
-        "axis": {"title": "Year"}
+        "field": "Cause of Death",
+        "type": "nominal",
+        "axis": {"title": "Cause of Death"},
+        "sort": {
+          "field": "totalDeaths",
+          "order": "ascending"}
       },
       "color": {
         "field": "totalDeaths",
         "type": "quantitative",
         "scale": {
-          "scheme": "reds"
+          "domain": [10, 100, 500, 1000, 2000,5000],
+          "scheme": "blues"
         },
         "legend": {"title": "Deaths and Missing"}
       }

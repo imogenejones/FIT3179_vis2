@@ -1,0 +1,56 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "Global Missing Migrants Dataset.csv"
+    },
+    "transform": [
+        {
+            "filter": "datum['Migration route abbr'] !== 'Unknown'"
+        },
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Number of Survivors", "as": "totalSurvivors"},
+            {"op": "sum", "field": "Total Number of Dead and Missing", "as": "totalDead"}
+          ],
+          "groupby": ["Migration route abbr"]
+        },
+        {
+          "fold": ["totalSurvivors", "totalDead"],
+          "as": ["category", "value"]
+        },
+        {
+          "calculate": "datum.value / (datum.totalSurvivors + datum.totalDead)",
+          "as": "percentage"
+        },
+        {
+            "calculate": "datum.totalSurvivors / (datum.totalSurvivors + datum.totalDead)",
+            "as": "proportionSurvivors"
+        }
+      ],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Migration route abbr",
+        "type": "nominal",
+        "axis": {"title": "Migration Route"},
+        "sort": {"field": "proportionSurvivors", "order": "descending"}
+      },
+      "y": {
+        "field": "percentage",
+        "type": "quantitative",
+        "axis": {"title": "Percentage", "format": "%"},
+        "stack": "normalize"
+      },
+      "color": {
+        "field": "category",
+        "type": "nominal",
+        "legend": {"title": "Status"}
+      },
+      "tooltip": [
+        {"field": "Migration route abbr", "type": "nominal"},
+        {"field": "category", "type": "nominal"},
+        {"field": "percentage", "type": "quantitative","format": ".2%"}
+      ]
+    }
+  }
+  

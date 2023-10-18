@@ -1,0 +1,29 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+     "height": 400,
+    "data": {
+      "url":
+      "Global Missing Migrants Dataset.csv"
+    },
+    
+    "transform": [
+        {
+        "filter": "(datum['Migration route abbr'] === 'Central Mediterranean' || datum['Migration route abbr']  === 'Sahara Desert' || datum['Migration route abbr'] === 'Sahara Desert' || datum['Migration route abbr'] === 'Mexico-US' || datum['Migration route abbr']  === 'West Africa'|| datum['Migration route abbr']  === 'East Mediterranean' || datum['Migration route abbr']  === 'West Mediterranean')"
+        }
+    ],
+    
+    "mark": "line",
+    "encoding": {
+      "x": {"field": "Incident year", "type": "ordinal", "title": "Year"},
+      "y": {"aggregate": "sum",
+        "field": "Total Number of Dead and Missing",
+        "type": "quantitative",
+        "title": "Total Deaths"},
+      "color": {"field": "Migration route abbr", "type": "nominal", "title": "Migration Route"},
+      "tooltip": [
+        {"field": "Migration route abbr", "type": "nominal"}
+      ]
+    }
+  }
+  

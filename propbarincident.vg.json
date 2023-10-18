@@ -1,0 +1,62 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 300,
+    "data": {
+      "url": "Global Missing Migrants Dataset.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Migration route abbr",
+        "type": "nominal",
+        "axis": {"title": "Migration Route"},
+        "sort": {"field": "drowningPercentage", "order": "descending"}
+      },
+      "y": {
+        "field": "percentage",
+        "type": "quantitative",
+        "axis": {"title": "Percentage", "format": "%"},
+        "stack": "normalize"
+      },
+      "color": {
+        "field": "Cause of Death",
+        "type": "nominal",
+        "legend": {"title": "Incident Type"},
+        "sort": ["Drowning"]
+      },
+      "tooltip": [
+        {"field": "Migration route abbr", "type": "nominal"},
+        {"field": "Cause of Death", "type": "nominal"},
+        {"field": "percentage", "type": "quantitative", "format": ".2%"}
+      ]
+    },
+    "transform": [
+      {
+        "aggregate": [
+          {"op": "count", "field": "Incident Type", "as": "count"}
+        ],
+        "groupby": ["Migration route abbr", "Cause of Death"]
+      },
+      {
+        "window": [
+          {"op": "sum", "field": "count", "as": "totalIncidentsForRoute"}
+        ],
+        "groupby": ["Migration route abbr"],
+        "frame": [null, null]
+      },
+      {
+        "calculate": "datum.count / datum.totalIncidentsForRoute",
+        "as": "percentage"
+      },
+      {
+        "window": [
+          {"op": "first_value", "field": "percentage", "as": "drowningPercentage"}
+        ],
+        "groupby": ["Migration route abbr"],
+        "sort": [{"field": "Cause of Death"}],
+        "frame": [null, null]
+      }
+    ]
+  }
+  

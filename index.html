@@ -17,46 +17,72 @@
     <script src="pie_chart.js"></script>
     <script src="heatmap.js"></script>
     <script src="migrationroute.js"></script>
+    <script src="propbar.js"></script>
+    <script src="flowmap.js"></script>
 </head>
 
 <body>
-    <div class = "pure-g">
-        <div class = "pure-u-1">
-            <img src = "banner.png"/>
+    <div class = header>
+        <h1> Vanishing Voyages: The global missing migrant crisis</h1>
+    </div>
+    <div class = column1>
+        <div id = 'text_div'>
+            <p>
+                This dataset provides a comprehensive record of missing migrants and their tragic journeys towards international destinations , collected by the Missing Migrants Project, an initiative implemented by the International Organization for Migration (IOM) since 2014. 
+                <br> <br>
+                The dataset documents deaths and disappearances, shedding light on the challenges migrants face during their journeys. 
+                <br> <br>
+                The dataset serves as a tribute to the individuals who lost their lives, as well as the families and communities impacted by their absence.
+            </p>
         </div>
-        <div class = "pure-u-1-3">
-            <div id = 'text_div'>
-                <h1> Background </h1>
-                <p>
-                    This dataset provides a comprehensive record of missing migrants and their tragic journeys towards international destinations , collected by the Missing Migrants Project, an initiative implemented by the International Organization for Migration (IOM) since 2014. 
-                    <br> <br>
-                    The dataset documents deaths and disappearances, shedding light on the challenges migrants face during their journeys. 
-                    <br> <br>
-                    The dataset serves as a tribute to the individuals who lost their lives, as well as the families and communities impacted by their absence.
-                </p>
+    </div>
+    <div class = column1c>
+        <h3> The People</h3>
+    </div>
+    <div class = "column2">
+        <h4> Map of showing origin countrys by number of incidents </h4>
+        <div id = "map"> </div>
+    </div>
+    <div class = "column2">
+        <h4> Gender breakdown of Dead and missing </h4>
+        <div id = "pie_chart"> </div>
+        <p>
+            From these visualisations we can see that the origin countries and gender are 
+            <br> <br>
+            The dataset documents deaths and disappearances, shedding light on the challenges migrants face during their journeys. 
+            <br> <br>
+            The dataset serves as a tribute to the individuals who lost their lives, as well as the families and communities impacted by their absence.
+        </p>
+    </div>
+    <div class = column1c>
+        <h3> The Incidents </h3>
+    </div>
+    <div class = "column4">
+        <h4> Proportion of incident type by migration route </h4>
+        <div id = "propbar"> </div>
+    </div>
+    <div class = "column4">
+        <h4> Incidents based on route</h4>
+        <div id = "heatmap"> </div>
+    </div>
+    
+    <div class = column1c>
+        <h3> The Routes</h3>
+    </div>
+    <div class="column5l">
+        <h4>Locations of incidents</h4>
+    
+        <div class="map-container">
+            <div id="fullmap"></div> 
+    
+            <div class="buttons-container">
+                <button onclick="loadFullWorldMap()">Full World</button>
+                <button onclick="loadUSMexicoMap()">US-Mexico</button>
+                <button onclick="loadSaharaMap()">Sahara and the Mediterranean</button>
             </div>
         </div>
-        <div class = "pure-u-2-3">
-            <h2> Map of incident locations </h2>
-            <div id = "map"> </div>
-        </div>
-        <div class = "pure-u-1-3">
-            <h1> Gender split of mising and dead</h1>
-            <div id = "pie_chart"></div>
-        </div>
-        <div class = "pure-u-1-3">
-            <h1> Times of year when incidents occur</h1>
-            <div id = "heatmap"></div>
-        </div>
-        <div class = "pure-u-1-3">
-            <h1> Common Migration routes</h1>
-            <div id = "barchart"></div>
-        </div>  
-
-     </div>
-
-
     </div>
+    
 </body>
 
 </html>
