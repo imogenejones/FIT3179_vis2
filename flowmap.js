@@ -1,10 +1,13 @@
 var spec1 = "flow_map.vg.json";
 
 
-var spec2 = "usmexicomap.vg.json";
+var spec2 = "sahara.vg.json";
 
 
-var spec3 = "sahara.vg.json";
+var spec3 = "usmexicomap.vg.json";
+
+
+var spec4 = "medit.vg.json";
 
 
 function loadFullWorldMap() {
@@ -14,13 +17,19 @@ function loadFullWorldMap() {
 }
 
 function loadUSMexicoMap() {
-  vegaEmbed('#fullmap', spec2).then(function(result) {
+  vegaEmbed('#fullmap', spec3).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 }
 
 function loadSaharaMap() {
-  vegaEmbed('#fullmap', spec3).then(function(result) {
+  vegaEmbed('#fullmap', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+}
+
+function loadMediterraneanMap() {
+  vegaEmbed('#fullmap', spec4).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 }

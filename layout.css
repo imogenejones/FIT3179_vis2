@@ -1,36 +1,203 @@
 html {
-    background: url(background.jpg) no-repeat center;
+    background: url(backgroundn.jpg) no-repeat center;
     background-size: cover;
  }
 
 .header {
-    background-color: #F1F1F1;
-    text-align: center;
+    text-align: left;
     padding: 10px;
-    margin:50px
+    margin-left: 50px;
+    margin-top: 15px;
+    height: 200px;
  }
 
-.column1 {
-    background-color: #F1F1F1;
+
+.container {
+    display: flex;
+    align-items: start;
+    gap: 5px;
+    margin-bottom: 0px;
+}
+
+.column-left {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    flex-grow: 1; /* Allow the column to grow and take available space */
+    gap: 10px; /* Space between items in the column */
+    margin-top: 50px;
+    border-radius: 5px;
+    margin-left: 50px;
+    padding-top: 50px;
+    margin-right: 50px;
+}
+
+#incidentsdiv {
+    background-color: #e9dac7;
+    margin-left: 100px;
+    margin-right: 250px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    gap: 20px
+}
+
+#fullmap {
+    width: 100%; /* Take full width of its parent */
+    height: 500px;
+    margin-top: 20px; /* Add some space above the map */
+    margin-left: 0px;
+    border-radius: 5px
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 100px;
+    margin-right: 50px;
+    width: 400px;
+}
+
+.buttons-container button {
+    background-color: #042873;
+    color: white;
+    padding: 15px 25px;
+    border: none; /* Remove default border */
+    gap: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.buttons-container button:hover {
+    background-color: rgb(3, 3, 54);
+}
+
+h6 {
+    color: #042873;
+    font-size: 60px;
+    font-family: 'Bebas Neue', sans-serif;
+    margin: 0; /* Remove top margin */
+    text-align: center;
+}
+
+h7 {
+    color: #042873;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 100px; /* Add a small margin at the top to bring it close to h6 */
+    margin-bottom: 10px; /* Add a small margin at the bottom to give space above the map */
+}
+
+
+.column-text, .text-under-image {
+    flex: 1; /* Takes up 1 part of the available space */
+    border-radius: 5px;
+    margin-left: 50px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.column-text2 {
+    flex: 1; /* Takes up 1 part of the available space */
+    background-color: #e9dac7;
+    border-radius: 5px;
+    margin-right: 50px;
+    padding: 20px;
+    margin-top: 250px;
+    margin-bottom: 250p;
+}
+
+.column-text3 {
+    flex: 1; /* Takes up 1 part of the available space */
+    background-color: #e9dac7;
+    border-radius: 5px;
+    margin-left: 50px;
+    padding: 20px;
+    margin-top: 50px;
+}
+.column-text9 {
+    flex: 1; /* Takes up 1 part of the available space */
+    border-radius: 5px;
+    margin-left: 50px;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.column-image {
+    flex: 1; /* Takes up 1 part of the available space */
+}
+
+.column-image2 {
+    flex: 1; /* Takes up 1 part of the available space */
+}
+.column-image img {
+    max-width: 100%; /* Makes sure the image doesn’t get larger than its container */
+    height: 400px;
+    border-radius: 5px; /* Optional: if you want the image corners to be rounded */
+}
+
+.column-image3 img {
+    max-width: 100%; /* Makes sure the image doesn’t get larger than its container */
+    height: auto;
+    margin-left: 300px;
+    border-radius: 5px; /* Optional: if you want the image corners to be rounded */
+}
+
+.column-image4 img {
+    max-width: 100%; /* Makes sure the image doesn’t get larger than its container */
+    height: 400px;
+    width: 800px;
+    margin-left: 10px;
+    padding-top: 40px;
+    border-radius: 5px; /* Optional: if you want the image corners to be rounded */
+}
+
+.column-image5 img {
+    max-width: 100%; /* Makes sure the image doesn’t get larger than its container */
+    height: auto;
+    margin-right: 100px;
+    border-radius: 5px; /* Optional: if you want the image corners to be rounded */
+}
+
+.column-image21 {
+    flex: 1; /* Takes up 1 part of the available space */
+    width:40%
+}
+
+.column2 {
     float: left;
-    width: 95%;
+    width: 55%;
     padding: 10px;
     margin: 20px
 }
 
-.column1c {
-    background-color: #7393B3;
+.column3 {
+    background-color: #e9dac7;
+    border-radius: 5px;
     float: left;
-    width: 95%;
+    width: 55%;
     padding: 10px;
-    margin: 20px
+    margin-right: 50px;
+    margin-left: 50px
 }
-.column2 {
-    background-color: #F1F1F1;
+
+.column6 {
+    background-color: #e9dac7;
+    border-radius: 5px;
     float: left;
-    width: 45%;
-    padding: 10px;
-    margin: 20px
+    align-content: center;
+    width: 55%;
+    padding: 20px;
+    padding-left: 50px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 50px;
 }
 
 .column4 {
@@ -52,72 +219,58 @@ html {
     flex-direction: column;
 }
 
-.map-container {
-    display: flex;
-    align-items: start;
-}
 
-#fullmap {
-    width: 75%; 
-    height: 500px;
-    margin-right: 10px; 
-}
-
-.buttons-container {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-.buttons-container button {
-    background-color: blue;    
-    color: white;           
-    padding: 15px 25px;  
-    border: 10px;
-    gap: 20px;            
-    border-radius: 5px;  
-    font-size: 16px;  
-    cursor: pointer; 
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-}
-
-.buttons-container button:hover {
-    background-color: darkblue; /* Darker blue background on hover */
-}
-
-
-#text_div {
-    margin-left: 50px;
-    margin-right: 50px;
+#number_div {
+    text-align: center;
 }
 
 h1 {
-    text-align: center;
-    color: #111933;
-    font-size: 40px;
+    text-align: left;
+    color: #e9dac7;
+    font-size: 100px;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 h2 {
-    margin-left:50px;
-    color: #111933;
-    font-size: 40px;
+    color: #e9dac7;
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 h3 {
     text-align: center;
-    color: #F1F1F1;
-    font-size: 30px;
+    color: #e9dac7;
+    font-size: 40px;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 h4 {
     text-align: center;
-    color: #111933;
+    color: #e9dac7;
+    font-family: 'Montserrat', sans-serif, ;
+    font-weight: bold;
     font-size: 20px;
 }
 
+h5 {
+    text-align: center;
+    color: #042873;
+    font-family: 'Montserrat', sans-serif, ;
+    font-weight: bold;
+    font-size: 20px;
+}
 
 p {
-    color: #111933;
+    color: #e9dac7;
     font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+p2 {
+    color: #042873;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #map{
@@ -140,4 +293,16 @@ p {
     width: 90%;
     height: 90%
 
+}
+
+#buttontext{
+    align-content: center;
+    background-color: #e9dac7;
+    padding: 20px;
+    margin-top:40px;
+    border-radius: 5px;
+}
+
+label[for="Route_selection"] {
+    color: white;
 }

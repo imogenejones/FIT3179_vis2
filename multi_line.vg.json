@@ -1,29 +1,168 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
-     "height": 400,
-    "data": {
-      "url":
-      "Global Missing Migrants Dataset.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "background": " #042873",
+  "data": {
+    "url": "Global Missing Migrants Dataset.csv"
+  },
+  "transform": [
+    {
+      "filter": "Route_selection == null || datum['Migration route abbr'] == Route_selection"
     },
-    
-    "transform": [
-        {
-        "filter": "(datum['Migration route abbr'] === 'Central Mediterranean' || datum['Migration route abbr']  === 'Sahara Desert' || datum['Migration route abbr'] === 'Sahara Desert' || datum['Migration route abbr'] === 'Mexico-US' || datum['Migration route abbr']  === 'West Africa'|| datum['Migration route abbr']  === 'East Mediterranean' || datum['Migration route abbr']  === 'West Mediterranean')"
-        }
-    ],
-    
-    "mark": "line",
-    "encoding": {
-      "x": {"field": "Incident year", "type": "ordinal", "title": "Year"},
-      "y": {"aggregate": "sum",
+    {
+      "filter": "datum['Migration route abbr'] !== 'Unknown'"
+    }
+  ],
+  
+  "params": [
+    {
+      "name": "Route_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+            null,
+            "Mexico–US",
+            "Unknown",
+            "English Channel",
+            "Carribbean–US",
+            "West Mediterranean",
+            "Central Mediterranean",
+            "Haiti–DR",
+            "Horn–Yemen",
+            "Sahara Desert",
+            "West Africa",
+            "Syr–Turk",
+            "Western Balkans",
+            "East Mediterranean",
+            "Turk–EU",
+            "DR–Puerto Rico",
+            "Comoros–Mayotte",
+            "Venez–Carib",
+            "Darien",
+            "Iran–Turk",
+            "Italy–France",
+            "Afgn–Iran",
+            "DRC–Uganda",
+            "Belarus border",
+            "Ukr–EU"
+        ],
+        "labels": [
+          "Show All",
+          "Mexico–US",
+          "Unknown",
+          "English Channel",
+          "Carribbean–US",
+          "West Mediterranean",
+          "Central Mediterranean",
+          "Haiti–DR",
+          "Horn–Yemen",
+          "Sahara Desert",
+          "West Africa",
+          "Syr–Turk",
+          "Western Balkans",
+          "East Mediterranean",
+          "Turk–EU",
+          "DR–Puerto Rico",
+          "Comoros–Mayotte",
+          "Venez–Carib",
+          "Darien",
+          "Iran–Turk",
+          "Italy–France",
+          "Afgn–Iran",
+          "DRC–Uganda",
+          "Belarus border",
+          "Ukr–EU"
+        ],
+        "name": "Route Selection: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "x": {
+          "field": "Incident year",
+          "type": "ordinal",
+          "title": "Year"
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "Total Number of Dead and Missing",
+          "type": "quantitative",
+          "title": "Total Dead and Missing"
+        },
+        "color": {
+          "field": "Migration route abbr",
+          "type": "nominal",
+          "title": "Migration Route",
+          "scale": {
+            "scheme": "set3"
+          }
+        },
+    "tooltip": [
+      {
+        "field": "Migration route abbr",
+        "type": "nominal"
+      },
+      {
+        "aggregate": "sum",
         "field": "Total Number of Dead and Missing",
         "type": "quantitative",
-        "title": "Total Deaths"},
-      "color": {"field": "Migration route abbr", "type": "nominal", "title": "Migration Route"},
-      "tooltip": [
-        {"field": "Migration route abbr", "type": "nominal"}
-      ]
+        "title": "Total Dead and Missing"
+      }
+    ]
+  }
+},
+{
+  "transform": [
+    {
+      "filter": "datum['Migration route abbr'] == 'Central Mediterranean' && datum['Incident year'] == '2016'"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "Total Number of Dead and Missing",
+          "as": "Sum_Total_Dead_and_Missing"
+        }
+      ],
+      "groupby": ["Incident year", "Migration route abbr"]
+    }
+  ],
+  "mark": {
+    "type": "text",
+    "align": "left",
+    "baseline": "middle",
+    "dx": 5
+  },
+  "encoding": {
+    "x": {
+      "field": "Incident year",
+      "type": "ordinal"
+    },
+    "y": {
+      "field": "Sum_Total_Dead_and_Missing",
+      "type": "quantitative"
+    },
+    "text": {
+      "value": "4574 deaths in Central Mediterranean meant it was referred to as a 'Mass grave' in 2016."
+    },
+    "color": {
+      "value": "white"
     }
   }
-  
+}
+],
+"config": {
+"axis": {
+  "labelColor": "white",
+  "titleColor": "white"
+},
+"legend": {
+  "labelColor": "white",
+  "titleColor": "white"
+}
+}
+}

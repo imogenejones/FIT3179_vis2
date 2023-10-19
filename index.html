@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
     <link rel="stylesheet" href="layout.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,74 +18,145 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
     <script src="map.js"></script>
-    <script src="pie_chart.js"></script>
     <script src="heatmap.js"></script>
     <script src="migrationroute.js"></script>
     <script src="propbar.js"></script>
     <script src="flowmap.js"></script>
+    <script src="multiline.js"></script>
+
 </head>
 
 <body>
-    <div class = header>
-        <h1> Vanishing Voyages: The global missing migrant crisis</h1>
+    <div class="header">
+        <h1>The Global Missing Migrant crisis</h1>
     </div>
-    <div class = column1>
-        <div id = 'text_div'>
-            <p>
-                This dataset provides a comprehensive record of missing migrants and their tragic journeys towards international destinations , collected by the Missing Migrants Project, an initiative implemented by the International Organization for Migration (IOM) since 2014. 
-                <br> <br>
-                The dataset documents deaths and disappearances, shedding light on the challenges migrants face during their journeys. 
-                <br> <br>
-                The dataset serves as a tribute to the individuals who lost their lives, as well as the families and communities impacted by their absence.
-            </p>
+
+    <div class="container">
+        <div class="column-text">
+            <div id="text_div">
+                <h2>Background</h2>
+                <p>This collection presents a high level overview of migrants who disappeared while aiming for international destinations, gathered by the Missing Migrants Project under the aegis of the International Organization for Migration (IOM) from 2014 onwards.
+                     It captures the incidents resulting in fatalities and missing people, displaying the hurdles faced by migrants in transit. This data set stands as a testament to the departed and acknowledges the profound impact on the communities and families left behind.</p>
+                <p>
+                    This visualisation serves as an exploration into these incidents. The data recorded on these incidents is only the tip of the inceberg in regards to this crisis. Numbers of dead and missing people are the minimum numbers affected by the incidents,
+                    and there are likely many more people and many more incidents that occured in this time frame. 
+                </p>
+            </div>
         </div>
+        <div class="column-image">
+            <div id="trailcorner">
+                <img src="trailcorner.png" alt="Trail Corner">
+            </div>
+        </div>
+    </div>    
+
+    <div class="container">
+        <div class="column-image2">
+            <div id="trailcorner">
+                <img src="trailcorner2.png" alt="Trail Corner2">
+            </div>
+            <div class="text-under-image">
+                <p>The map shows that most migration incidents happen when the migrants are coming from Afghanistan, Mexico, Venezuela and Morroco. This is likely due to the heavy volume of migration happening out of these countries, the geopolitical climate of the areas, as well as the harsh environmental conditions surrounding land and water migration.</p>
+            </div>
+            <div class="column-image3">
+                <img src="shorttrail.png" alt="Trail Corner2">
+            </div>
+        </div>
+        <div class="column2">
+            <h2> origin </h2>
+            <h4> Migration Incidents by origin country</h4>
+            <div id="map"></div>
+        </div>
+    </div>    
+
+    <div class="container">
+        <div class="column2">
+            <h2> Routes </h2>
+            <h4> People Missing and Dead from routes over time</h4>
+            <div id="multiline"></div>
+        </div>
+        <div class="column-text2">
+            <div id="text_div">
+                <h5>Explore how the number of dead and missing people from each route changes with the drop down search.</h5>
+                <p2>The Central Mediterranean has had the highest number of dead and missing people for most 2014-2023. In 2016, 97% of migrant and refugee flow into europe was via sea travel.
+                    There were a large number of high volume incidents of drowning in the Central Mediterranean in 2016, surpassing the previous most deadly year of 2015. 
+                </p2>
+                <br><br>
+                <p2>
+                    In 2015, Niger's government introduced an anti-smuggling law that forced migrants to take deeper and more challenging routes into the Sahara Desert. In the graph the increase in deaths in the Sahara 
+                </p2>
+            </div>
+            <div id="next_text">
+                <h5>The graph below shows how the causes of death interact with each route.</h5>
+            </div>
+        </div>
+        
     </div>
-    <div class = column1c>
-        <h3> The People</h3>
+    <div class = "container">
+        <div class = "column-image21">
+            <div class = "column-text9">
+            <p>
+                In the heat map we can see that drowning causes the highest number of dead and missing overall across all the routes. Central Mediterranean Migrants are mostly from Libya
+                and Algeria trying to reach Italy. The EU halved the size of it's Mediterranean rescue mission in 2014, leading to many more avoidable deaths.
+                The Sahara desert is a different case where the danger is not from water crossing, but harsh land conditions. 
+            </p>
+            </div>
+            <div class="column-image4">
+                <img src="longtrailwhite.png" alt="Trail Corner3">
+            </div>
+        </div>
+        <div class = "column3">
+            <h5> Heat map of Incidents based on route</h5>
+            <div id = "heatmap"> </div>
+        </div>
+        
     </div>
-    <div class = "column2">
-        <h4> Map of showing origin countrys by number of incidents </h4>
-        <div id = "map"> </div>
-    </div>
-    <div class = "column2">
-        <h4> Gender breakdown of Dead and missing </h4>
-        <div id = "pie_chart"> </div>
-        <p>
-            From these visualisations we can see that the origin countries and gender are 
-            <br> <br>
-            The dataset documents deaths and disappearances, shedding light on the challenges migrants face during their journeys. 
-            <br> <br>
-            The dataset serves as a tribute to the individuals who lost their lives, as well as the families and communities impacted by their absence.
-        </p>
-    </div>
-    <div class = column1c>
-        <h3> The Incidents </h3>
-    </div>
-    <div class = "column4">
-        <h4> Proportion of survivors</h4>
-        <div id = "propbar"> </div>
-    </div>
-    <div class = "column4">
-        <h4> Incidents based on route</h4>
-        <div id = "heatmap"> </div>
-    </div>
-    
-    <div class = column1c>
-        <h3> The Routes</h3>
-    </div>
-    <div class="column5l">
-        <h4>Locations of incidents</h4>
-    
-        <div class="map-container">
+    <div class="container">
+        <div class="column-left">
+            <div id = "incidentsdiv">
+                <h6>Incidents</h6>
+                <br>
+                <h7>People Missing and Dead from routes over time</h7>
+            </div>
             <div id="fullmap"></div> 
-    
-            <div class="buttons-container">
-                <button onclick="loadFullWorldMap()">Full World</button>
-                <button onclick="loadUSMexicoMap()">US-Mexico</button>
-                <button onclick="loadSaharaMap()">Sahara and the Mediterranean</button>
+        </div>
+        <div class="buttons-container">
+            <div id = "buttontext">
+                <p2>
+                    Zoom into the high density areas of 
+                    the map with the below buttons. 
+                </p2>
+            </div>
+            <button onclick="loadFullWorldMap()">Full World</button>
+            <button onclick="loadSaharaMap()">The Sahara and West Africa</button>
+            <button onclick="loadMediterraneanMap()">The Mediterranean</button>
+            <button onclick="loadUSMexicoMap()">Mexico and The Caribbean</button>
+            <div class="column-image5">
+                <img src="smalltail6.png" alt="Trail Corner3">
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="column-text3">
+           <p2>
+            From the proportional bar chart on the right we can see that despite having a large number of deaths, incidents in the Mediterranean do often have a high survival rate.
+            On the other hand, incidents in the Sahara Desert have a much lower survival rate at around 27%. 
+           </p2>
+           <br><br><br>
+            <p2>
+                It is essential that policy makers address the global missing migrant crisis. To substantially decrease the deaths of migrants during transit, it is crucial to create and strengthen legal pathways. 
+                These could incluse such as resettlement opportunities, more visa freedom, and channels for family reunification as safer alternatives 
+                to perilous journeys. Enhanced collaboration with transit nations can facilitate humane border controls. Moreover, the establishment of protection mechanisms, like safe havens in transit 
+                countries and ensuring access to fair asylum procedures, can provide interim safety and guidance, reducing the likelihood of life-threatening situations for migrants.
+            </p2>
+        </div>
+        <div class="column6">
+            <h6> Aftermath</h6>
+            <h5> Percentage of survivors after incidents on migration routes</h5>
+            <div id="propbar"></div>
+    </div>
+    
+    
     
     
 </body>

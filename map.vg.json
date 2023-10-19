@@ -1,37 +1,49 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Origin Countries of Missing Migrant Incidents",
-    "fontSize": 16,
-    "font": "Libre Baskerville"
+  "background": " #042873",
+  "width": 800,
+  "height": 600,
+  "projection": {
+    "type": "equalEarth"
   },
-  "width": 600,
-  "height": 400,
-  "projection": {"type": "equalEarth"},
   "layer": [
     {
       "data": {
         "url": "ne_110m_admin_0_countries.json",
-        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
       },
-      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "darkgray"}
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgray",
+        "stroke": "darkgray"
+      }
     },
     {
       "data": {
         "url": "ne_110m_admin_0_countries.json",
-        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
       },
       "transform": [
         {
           "lookup": "properties.NAME",
           "from": {
-            "data": {"url": "origin_countries.csv"},
+            "data": {
+              "url": "origin_countries.csv"
+            },
             "key": "Country",
             "fields": ["Incidents"]
           }
         }
       ],
-      "mark": {"type": "geoshape"},
+      "mark": {
+        "type": "geoshape"
+      },
       "encoding": {
         "color": {
           "field": "Incidents",
@@ -40,17 +52,85 @@
           "scale": {
             "type": "threshold",
             "domain": [10, 100, 500, 1000],
-            "range": ["#89CFEF", "#57A0D2", "#0E4C92","#000080", "#003151"]
-            }
+            "scheme": "oranges"
+          },
+          "legend": {
+            "labelColor": "white",
+            "titleColor": "white"
+          }
         },
         "tooltip": [
-          {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+          {
+            "field": "properties.NAME",
+            "type": "nominal",
+            "title": "Country"
+          },
           {
             "field": "Incidents",
             "type": "quantitative",
             "title": "Number of Incidents"
           }
         ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon1": 66.238514,
+            "lat1": 33.768006,
+            "lon2": 70,
+            "lat2": -42
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "white",
+        "size": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon1"
+        },
+        "latitude": {
+          "field": "lat1"
+        },
+        "longitude2": {
+          "field": "lon2"
+        },
+        "latitude2": {
+          "field": "lat2"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 140,
+            "lat": -45,
+            "text": "Afghanistan: Largest number of incidents by far at 1727"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "color": "white",
+        "align": "right",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon"
+        },
+        "latitude": {
+          "field": "lat"
+        },
+        "text": {
+          "field": "text"
+        }
       }
     }
   ]
